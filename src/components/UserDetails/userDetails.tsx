@@ -1,49 +1,56 @@
-import { FC, useState } from "react";
-import { InfoCircleOutlined } from "@ant-design/icons";
-import { Form, Input, Radio } from "antd";
-import { CustomButton } from "../CustomButton";
-import "./userDetails.css";
+import React, { FC } from 'react';
+import { Form, Input } from 'antd';
+import { CustomButton } from '../CustomButton';
+import './userDetails.css';
 const { TextArea } = Input;
 
-type RequiredMark = boolean | "optional";
-
 export const UserDetails: FC = () => {
-  const [form] = Form.useForm();
-  const [requiredMark, setRequiredMarkType] =
-    useState<RequiredMark>("optional");
+  const onFinish = (values: any): void => {
+    console.log('Success:', values);
+  };
 
-  const onRequiredTypeChange = ({
-    requiredMarkValue,
-  }: {
-    requiredMarkValue: RequiredMark;
-  }) => {
-    setRequiredMarkType(requiredMarkValue);
+  const onFinishFailed = (errorInfo: any): void => {
+    console.log('Failed:', errorInfo);
   };
 
   return (
     <div className="user_details_section">
-      <h2>Enter Detials</h2>
+      <h3>
+        <b>Enter Details</b>
+      </h3>
       <Form
-        form={form}
+        name="basic"
         layout="vertical"
-        initialValues={{ requiredMarkValue: requiredMark }}
-        onValuesChange={onRequiredTypeChange}
-        requiredMark={requiredMark}
-      >
-        <Form.Item label="Name" required>
-          <Input placeholder="input placeholder" />
+        labelCol={{ span: 8 }}
+        wrapperCol={{ span: 16 }}
+        initialValues={{ remember: true }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off">
+        <Form.Item
+          label="Name"
+          name="username"
+          rules={[{ required: true, message: 'Please input your name!' }]}>
+          <Input />
         </Form.Item>
-        <Form.Item label="Email">
-          <Input placeholder="input placeholder" />
+        <Form.Item
+          label="Email"
+          name="Email"
+          rules={[{ required: true, message: 'Please input your email' }]}>
+          <Input />
         </Form.Item>
         <Form.Item>
-          <CustomButton shape="round" label="Add Guest" />
+          <CustomButton shape="round" outline="button_outline">
+            Add Guest
+          </CustomButton>
         </Form.Item>
         <Form.Item label="Please share anything that will help prepare for our meeting.">
           <TextArea rows={4} />
         </Form.Item>
         <Form.Item>
-          <CustomButton type="primary" shape="round" label="Schedule Event" />
+          <CustomButton type="primary" shape="round" outline="" htmlType="submit">
+            Schedule Event
+          </CustomButton>
         </Form.Item>
       </Form>
     </div>

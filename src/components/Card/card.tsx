@@ -1,10 +1,8 @@
-import { FC } from "react";
-import "./card.css";
+import React, { FC } from 'react';
+import './card.css';
 
-type Props = {
+interface Props {
   children: JSX.Element;
-};
+}
 
-export const Card: FC<Props> = ({ children }) => (
-  <div className="card">{children}</div>
-);
+export const Card: FC<Props> = ({ children }) => <div className="card">{children}</div>;

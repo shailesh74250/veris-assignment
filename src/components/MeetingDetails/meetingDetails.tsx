@@ -1,10 +1,6 @@
-import { FC } from "react";
-import {
-  GlobalOutlined,
-  CalendarOutlined,
-  FieldTimeOutlined,
-} from "@ant-design/icons";
-import "./meetingDetails.css";
+import React, { FC } from 'react';
+import { GlobalOutlined, CalendarOutlined, FieldTimeOutlined } from '@ant-design/icons';
+import './meetingDetails.css';
 
 export const MeetingDetails: FC = () => (
   <div className="meeting_details_section">

@@ -1,1 +1,1 @@
-export * from "./scheduleMeeting";
+export * from './scheduleMeeting';

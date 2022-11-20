@@ -1,11 +1,11 @@
-import { FC } from "react";
-import { Col, Row } from "antd";
-import "antd/dist/reset.css";
-import "./scheduleMeeting.css";
-import { UserDetails } from "../components/UserDetails";
-import { MeetingDetails } from "../components/MeetingDetails";
-import { Container } from "../components/Container";
-import { Card } from "../components/Card";
+import React, { FC } from 'react';
+import { Col, Row } from 'antd';
+import 'antd/dist/reset.css';
+import './scheduleMeeting.css';
+import { UserDetails } from '../components/UserDetails';
+import { MeetingDetails } from '../components/MeetingDetails';
+import { Container } from '../components/Container';
+import { Card } from '../components/Card';
 
 export const ScheduleMeeting: FC = () => (
   <Container>
