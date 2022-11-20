@@ -31,13 +31,13 @@ export const UserDetails: FC = () => {
           label="Name"
           name="username"
           rules={[{ required: true, message: 'Please input your name!' }]}>
-          <Input />
+          <Input placeholder="name" />
         </Form.Item>
         <Form.Item
           label="Email"
           name="Email"
-          rules={[{ required: true, message: 'Please input your email' }]}>
-          <Input />
+          rules={[{ required: true, message: 'Please input your email!' }]}>
+          <Input placeholder="email" />
         </Form.Item>
         <Form.Item>
           <CustomButton shape="round" outline="button_outline">
